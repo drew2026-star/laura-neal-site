@@ -5,11 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Laura Neal · Boulder &amp; Niwot Realtor · Compass</title>
   <meta name="description" content="Laura Neal, Broker Associate at Compass, helps buyers and sellers across Boulder, Niwot, Lyons and the Front Range. Real estate that's fun and fulfilling — never stressful.">
+
+  <!-- Canonical URL — UPDATE after the real GitHub Pages / custom domain URL is known -->
+  <link rel="canonical" href="https://laura-neal.github.io/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://laura-neal.github.io/"><!-- UPDATE to real deployed URL -->
+  <meta property="og:title" content="Laura Neal · Boulder &amp; Niwot Realtor · Compass">
+  <meta property="og:description" content="Broker Associate at Compass helping buyers and sellers across Boulder, Niwot, Lyons and the Front Range. Real estate that's fun and fulfilling — never stressful.">
+  <!-- og:image is a placeholder reference; swap assets/og-image.jpg for a real 1200x630 image before launch -->
+  <meta property="og:image" content="https://laura-neal.github.io/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Laura Neal · Boulder &amp; Niwot Realtor · Compass">
+  <meta name="twitter:description" content="Broker Associate at Compass helping buyers and sellers across Boulder, Niwot, Lyons and the Front Range. Real estate that's fun and fulfilling — never stressful.">
+  <meta name="twitter:image" content="https://laura-neal.github.io/assets/og-image.jpg">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  { "@context":"https://schema.org","@type":"RealEstateAgent","name":"Laura Neal",
+    "jobTitle":"Broker Associate","telephone":"+1-303-304-3765","email":"laura.neal@compass.com",
+    "areaServed":["Boulder, CO","Niwot, CO","Lyons, CO","Longmont, CO"],
+    "memberOf":{"@type":"Organization","name":"Compass"},
+    "url":"https://www.compass.com/agents/laura-neal/" }
+  </script>
+
   <!-- Inline SVG favicon: gold "LN" monogram on navy -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314213d'/%3E%3Ctext x='16' y='22' font-family='Helvetica,Arial,sans-serif' font-size='15' font-weight='600' fill='%23c9a45c' text-anchor='middle'%3ELN%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ HEADER / NAV ============ -->
   <header class="site-header" id="top">
@@ -38,7 +67,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
@@ -139,15 +168,15 @@
           <input type="hidden" name="_subject" value="New home valuation request — laura-neal site">
           <div class="field field-full">
             <label for="v-address">Property address <span class="req">*</span></label>
-            <input id="v-address" name="address" type="text" required autocomplete="street-address">
+            <input id="v-address" name="address" type="text" required aria-required="true" autocomplete="street-address">
           </div>
           <div class="field">
             <label for="v-name">Name <span class="req">*</span></label>
-            <input id="v-name" name="name" type="text" required autocomplete="name">
+            <input id="v-name" name="name" type="text" required aria-required="true" autocomplete="name">
           </div>
           <div class="field">
             <label for="v-email">Email <span class="req">*</span></label>
-            <input id="v-email" name="email" type="email" required autocomplete="email">
+            <input id="v-email" name="email" type="email" required aria-required="true" autocomplete="email">
           </div>
           <div class="field">
             <label for="v-phone">Phone</label>
@@ -212,11 +241,11 @@
           <input type="hidden" name="_subject" value="New contact — laura-neal site">
           <div class="field">
             <label for="c-name">Name <span class="req">*</span></label>
-            <input id="c-name" name="name" type="text" required autocomplete="name">
+            <input id="c-name" name="name" type="text" required aria-required="true" autocomplete="name">
           </div>
           <div class="field">
             <label for="c-email">Email <span class="req">*</span></label>
-            <input id="c-email" name="email" type="email" required autocomplete="email">
+            <input id="c-email" name="email" type="email" required aria-required="true" autocomplete="email">
           </div>
           <div class="field">
             <label for="c-phone">Phone</label>
@@ -224,7 +253,7 @@
           </div>
           <div class="field">
             <label for="c-message">Message <span class="req">*</span></label>
-            <textarea id="c-message" name="message" rows="4" required></textarea>
+            <textarea id="c-message" name="message" rows="4" required aria-required="true"></textarea>
           </div>
           <div class="form-foot">
             <button class="btn" type="submit">Send Message</button>

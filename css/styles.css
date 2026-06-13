@@ -38,6 +38,34 @@ img { display:block; max-width:100%; height:auto; }
 a { color:inherit; }
 button { font:inherit; cursor:pointer; }
 
+/* ---------- ACCESSIBILITY: skip link + focus ---------- */
+/* Skip link: visually hidden until focused, then pinned top-left. */
+.skip-link {
+  position:absolute; top:.5rem; left:.5rem; z-index:1000;
+  background:var(--navy); color:var(--cream);
+  font-family:var(--font-head); font-size:12px; letter-spacing:.12em;
+  text-transform:uppercase; font-weight:600; text-decoration:none;
+  padding:.7rem 1.1rem; border-radius:var(--radius);
+  border:2px solid var(--gold);
+  transform:translateY(-150%); transition:transform .2s ease;
+}
+.skip-link:focus { transform:translateY(0); }
+
+/* Clear, consistent focus ring on all interactive elements. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible {
+  outline:3px solid var(--gold);
+  outline-offset:3px;
+  border-radius:var(--radius);
+}
+/* On the navy hero/bands a gold ring can be low-contrast against gold buttons;
+   keep the gold ring but add a navy inner edge for separation on light controls. */
+.band input:focus-visible,
+.band textarea:focus-visible { outline-offset:2px; }
+
 /* ---------- LAYOUT HELPERS ---------- */
 .container { max-width:var(--maxw); margin-inline:auto; padding-inline:1.25rem; }
 .section { padding-block:var(--space-section); }
@@ -89,7 +117,12 @@ button { font:inherit; cursor:pointer; }
 .btn-ghost-light:hover { background:var(--cream); color:var(--navy); border-color:var(--cream); }
 
 /* ---------- MEDIA PLACEHOLDERS ---------- */
-/* Tasteful navy/gold gradient blocks with a label; swap for real <img>. */
+/* Tasteful navy/gold gradient blocks with a label; swap for real <img>.
+   Containers below carry explicit aspect-ratio (hero is inset:0; portrait 4/5;
+   listing 3/2) so swapped-in images inherit dimensions and cause no layout shift.
+   When adding real below-the-fold imgs (headshot, listing photos), include
+   loading="lazy" decoding="async" plus width/height (or rely on these ratios).
+   The hero image is above the fold — leave it eager (no lazy). */
 .media-label {
   font-family:var(--font-head);
   font-size:10.5px; letter-spacing:.2em; text-transform:uppercase;
@@ -378,8 +411,9 @@ button { font:inherit; cursor:pointer; }
   font-family:var(--font-head); font-size:11px; letter-spacing:.12em;
   text-transform:uppercase; font-weight:600;
 }
-.footer-fine { font-size:.82rem; color:rgba(244,241,234,.7); line-height:1.6; margin-top:.8rem; }
-.footer-copy { font-size:.82rem; color:rgba(244,241,234,.7); margin-top:.6rem; }
+/* Opacity bumped to .88 so cream-on-navy fine print clears WCAG AA at this size. */
+.footer-fine { font-size:.82rem; color:rgba(244,241,234,.88); line-height:1.6; margin-top:.8rem; }
+.footer-copy { font-size:.82rem; color:rgba(244,241,234,.88); margin-top:.6rem; }
 
 /* =====================================================================
    RESPONSIVE
