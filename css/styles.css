@@ -64,7 +64,7 @@ textarea:focus-visible,
 /* On the navy hero/bands a gold ring can be low-contrast against gold buttons;
    keep the gold ring but add a navy inner edge for separation on light controls. */
 .band input:focus-visible,
-.band textarea:focus-visible { outline-offset:2px; }
+.band textarea:focus-visible { outline-offset:2px; box-shadow:0 0 0 2px var(--navy); }
 
 /* ---------- LAYOUT HELPERS ---------- */
 .container { max-width:var(--maxw); margin-inline:auto; padding-inline:1.25rem; }
