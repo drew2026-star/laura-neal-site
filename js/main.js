@@ -22,6 +22,20 @@ document.addEventListener('DOMContentLoaded', function () {
         toggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    // Reset the open state when the viewport widens past the mobile breakpoint
+    const mq = window.matchMedia('(max-width: 800px)');
+    const resetNav = function (e) {
+      if (!e.matches) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    };
+    if (mq.addEventListener) {
+      mq.addEventListener('change', resetNav);
+    } else if (mq.addListener) {
+      mq.addListener(resetNav); // older Safari
+    }
   }
 
   /* ---------- Progressive form enhancement ---------- */

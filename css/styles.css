@@ -49,7 +49,6 @@ button { font:inherit; cursor:pointer; }
   font-size:11px; letter-spacing:.22em; text-transform:uppercase;
   color:var(--gold); font-weight:600; margin-bottom:1rem;
 }
-.eyebrow-light { color:var(--gold); }
 .section-title {
   font-family:var(--font-head);
   font-weight:300; line-height:1.1;
@@ -68,7 +67,7 @@ button { font:inherit; cursor:pointer; }
   transition:gap .25s ease, color .25s ease;
 }
 .text-link:hover { gap:.85rem; color:var(--gold); }
-.band .text-link, .reviews-cta .text-link { }
+.band .text-link { color:var(--cream); border-bottom-color:var(--cream); }
 
 /* ---------- BUTTONS ---------- */
 .btn {
@@ -353,6 +352,7 @@ button { font:inherit; cursor:pointer; }
 .contact-value {
   font-family:var(--font-head); font-size:1.25rem; letter-spacing:.02em;
   color:var(--navy); text-decoration:none; font-weight:400;
+  border-bottom:1px solid var(--gold);
 }
 .contact-value:hover { color:var(--gold); }
 
