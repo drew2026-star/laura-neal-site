@@ -18,6 +18,17 @@ Suggested files:
 - `hero-path-cc0.jpg` — spare option. Open-space path toward the Flatirons, Boulder County.
   Source: Wikimedia Commons, **CC0** (public domain — no attribution required). Safe to use as-is.
 
+### Areas section card photos
+
+- `area-boulder.jpg` — open-space path near the Flatirons. **CC0** (no attribution).
+- `area-longmont.jpg` — crops at sunset, Front Range. **Public domain** (no attribution).
+- `area-niwot.jpg` — Front Range from Niwot. **CC BY-SA 3.0**, © Hogs555 — credited in the site footer.
+- `area-lyons.jpg` — downtown Lyons & red-rock bluff. **CC BY-SA 3.0**, © Billy Hathorn — credited in the site footer.
+
+To drop the footer photo-credit line entirely, replace `area-niwot.jpg`, `area-lyons.jpg`,
+and `hero-flatirons.jpg` with Unsplash/Pexels images (no attribution) and remove the
+`.footer-credit` line in `index.html`.
+
 Best sources for the final, no-strings images: Unsplash, Pexels, Pixabay
 (search "Boulder Colorado", "Flatirons", "Front Range"). All free for commercial use
 without attribution.
