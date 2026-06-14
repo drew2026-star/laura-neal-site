@@ -238,6 +238,7 @@ textarea:focus-visible,
   aspect-ratio:4/5; width:100%; border-radius:var(--radius);
 }
 .portrait-placeholder .media-label { position:relative; z-index:1; }
+.portrait-photo { display:block; aspect-ratio:4/5; width:100%; object-fit:cover; object-position:center top; border-radius:var(--radius); }
 /* gold frame accent */
 .about-portrait::before {
   content:""; position:absolute; inset:auto -14px -14px auto;
