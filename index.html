@@ -227,22 +227,18 @@
           <p>The Front Range moves fast. Track current prices, inventory, and trends across Boulder, Niwot, Lyons, and Longmont — or ask me for a custom report tailored to your neighborhood.</p>
         </div>
 
-        <!-- Live market charts: paste the IRES Infosparks embed/iframe snippet inside .market-embed
-             (replace the placeholder below). The frame already matches the site styling. -->
-        <div class="market-embed reveal" aria-label="Boulder County market trends">
-          <div class="market-placeholder">
-            <svg class="market-chart" viewBox="0 0 320 120" role="img" aria-hidden="true" preserveAspectRatio="none">
-              <polyline points="0,95 40,80 80,88 120,60 160,66 200,42 240,48 280,24 320,30"
-                        fill="none" stroke="var(--gold)" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round"></polyline>
-              <polyline points="0,105 40,98 80,100 120,86 160,90 200,74 240,80 280,62 320,66"
-                        fill="none" stroke="rgba(20,33,61,.25)" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round"></polyline>
-            </svg>
-            <p class="market-placeholder-label">Live Boulder County market charts</p>
-            <p class="market-placeholder-note">Interactive trends (powered by IRES Infosparks) will appear here.</p>
+        <!-- Live IRES Infosparks chart (Boulder County). To add more charts, drop additional
+             iframes inside .market-embed; they'll wrap and stay responsive. -->
+        <div class="market-embed reveal">
+          <!-- The Infosparks chart renders at a fixed 800x600; .market-frame + JS scale it
+               down proportionally to fit narrow screens (see scaleMarketFrames in main.js). -->
+          <div class="market-frame">
+            <iframe src="https://ires.stats.10kresearch.com/infoserv/s-v1/GEub-fLx?w=800&h=600"
+                    title="Boulder County market trends — IRES Infosparks"
+                    width="800" height="600" loading="lazy"></iframe>
           </div>
         </div>
+        <p class="market-source">Live data via IRES Infosparks.</p>
 
         <div class="market-cta reveal">
           <a class="btn" href="#contact">Request a custom market report</a>

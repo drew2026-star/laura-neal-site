@@ -198,4 +198,24 @@ document.addEventListener('DOMContentLoaded', function () {
     start();
   }
 
+  /* ---------- Scale fixed-size embeds (Infosparks chart) to fit their container ---------- */
+  function scaleMarketFrames() {
+    document.querySelectorAll('.market-frame').forEach(function (frame) {
+      const iframe = frame.querySelector('iframe');
+      if (!iframe) return;
+      const base = parseInt(iframe.getAttribute('width'), 10) || 800;
+      const scale = Math.min(1, frame.clientWidth / base);
+      iframe.style.transform = 'scale(' + scale + ')';
+    });
+  }
+  if (document.querySelector('.market-frame')) {
+    scaleMarketFrames();
+    window.addEventListener('load', scaleMarketFrames);
+    let rafId = null;
+    window.addEventListener('resize', function () {
+      if (rafId) return;
+      rafId = requestAnimationFrame(function () { rafId = null; scaleMarketFrames(); });
+    }, { passive: true });
+  }
+
 });

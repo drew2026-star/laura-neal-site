@@ -307,27 +307,26 @@ textarea:focus-visible,
 /* =====================================================================
    MARKET INSIGHTS
    ===================================================================== */
-/* .market-embed is the drop-in frame for the IRES Infosparks snippet.
-   When a real embed/iframe is pasted in, remove .market-placeholder. */
+/* Frame holding the live Infosparks iframe. Native chart is 800x600 (4:3);
+   it caps at that on desktop and scales down proportionally on smaller screens. */
 .market-embed {
+  max-width:820px; margin-inline:auto; padding:8px;
   border:1px solid rgba(20,33,61,.12); border-radius:var(--radius);
-  background:var(--white); box-shadow:var(--shadow-sm); overflow:hidden;
+  background:var(--white); box-shadow:var(--shadow-sm);
 }
-.market-embed iframe { display:block; width:100%; border:0; }
-.market-placeholder {
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center; gap:.5rem; padding:clamp(2.5rem,6vw,4.5rem) 1.5rem;
-  background:
-    radial-gradient(120% 120% at 50% 0%, rgba(201,164,92,.10), transparent 60%),
-    var(--white);
+/* Holds the fixed-size chart and reserves a 4:3 box; JS scales the iframe to fit. */
+.market-frame {
+  position:relative; width:100%; max-width:800px; margin-inline:auto;
+  aspect-ratio:4 / 3; overflow:hidden;
 }
-.market-chart { width:min(420px,80%); height:auto; opacity:.9; margin-bottom:.75rem; }
-.market-placeholder-label {
-  font-family:var(--font-head); text-transform:uppercase; letter-spacing:.12em;
-  font-size:13px; font-weight:600; color:var(--navy);
+.market-frame iframe {
+  position:absolute; top:0; left:0; width:800px; height:600px; border:0;
+  transform-origin:top left;
 }
-.market-placeholder-note { color:var(--muted); font-size:.95rem; max-width:42ch; }
-.market-cta { text-align:center; margin-top:2.25rem; }
+.market-source {
+  text-align:center; color:var(--muted); font-size:.82rem; margin-top:.9rem;
+}
+.market-cta { text-align:center; margin-top:2rem; }
 
 /* =====================================================================
    VALUATION BAND
