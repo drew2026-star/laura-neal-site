@@ -9,14 +9,10 @@ Suggested files:
 - `laura.jpg` — headshot portrait (4:5)
 - `listing-monarch.jpg` — 7845 Monarch Road listing (3:2)
 
-## Current placeholder photos (free stock — swap before launch)
+## Current stock photos
 
-- `hero-flatirons.jpg` — **in use** as the hero. Flatirons at sunrise, Boulder County.
-  Source: Wikimedia Commons "Flatirons Sunrise.jpg", **CC BY-SA 4.0**.
-  ⚠️ CC BY-SA requires a visible credit AND share-alike. Before going live, either add a
-  photo credit, or (better) replace with an **Unsplash/Pexels** image (free, no attribution).
-- `hero-path-cc0.jpg` — spare option. Open-space path toward the Flatirons, Boulder County.
-  Source: Wikimedia Commons, **CC0** (public domain — no attribution required). Safe to use as-is.
+- `hero.jpg` — **in use** as the hero. Flatirons over a Boulder meadow.
+  Source: **Pexels** (free for commercial use, **no attribution required**). Swap for Laura's own anytime.
 
 ### Areas section card photos
 
@@ -25,9 +21,8 @@ Suggested files:
 - `area-niwot.jpg` — Front Range from Niwot. **CC BY-SA 3.0**, © Hogs555 — credited in the site footer.
 - `area-lyons.jpg` — downtown Lyons & red-rock bluff. **CC BY-SA 3.0**, © Billy Hathorn — credited in the site footer.
 
-To drop the footer photo-credit line entirely, replace `area-niwot.jpg`, `area-lyons.jpg`,
-and `hero-flatirons.jpg` with Unsplash/Pexels images (no attribution) and remove the
-`.footer-credit` line in `index.html`.
+To drop the footer photo-credit line entirely, replace `area-niwot.jpg` and `area-lyons.jpg`
+with Unsplash/Pexels images (no attribution) and remove the `.footer-credit` line in `index.html`.
 
 Best sources for the final, no-strings images: Unsplash, Pexels, Pixabay
 (search "Boulder Colorado", "Flatirons", "Front Range"). All free for commercial use
