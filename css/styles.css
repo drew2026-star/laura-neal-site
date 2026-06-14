@@ -199,17 +199,23 @@ textarea:focus-visible,
    ===================================================================== */
 .hero {
   position:relative; min-height:80vh;
-  display:flex; align-items:center;
+  display:grid; grid-template-columns:minmax(0,1fr); align-items:center; /* full-width column → copy aligns to the site gutter */
   background:var(--navy); color:var(--cream); overflow:hidden;
 }
 .hero-media { position:absolute; inset:0; }
 .hero-media .media-label { position:absolute; bottom:1.25rem; right:1.5rem; }
 .hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-.hero::before { /* readability overlay */
+.hero::before { /* readability overlay: dark band on the left behind the text, fading
+                   to clear on the right so the photo shows; subtle base for the scroll cue. */
   content:""; position:absolute; inset:0; z-index:1;
-  background:linear-gradient(100deg, rgba(20,33,61,.92) 0%, rgba(20,33,61,.74) 48%, rgba(20,33,61,.42) 100%);
+  background:
+    linear-gradient(0deg, rgba(20,33,61,.40) 0%, rgba(20,33,61,0) 26%),
+    linear-gradient(90deg, rgba(20,33,61,.84) 0%, rgba(20,33,61,.56) 30%, rgba(20,33,61,.20) 58%, rgba(20,33,61,0) 86%);
 }
-.hero-inner { position:relative; z-index:2; padding-block:clamp(5rem,12vh,8rem); max-width:760px; }
+/* Full-width centered container (aligns hero copy to the same left gutter as the
+   rest of the site); the copy itself is capped and left-aligned. */
+.hero-inner { position:relative; z-index:2; width:100%; padding-block:clamp(5rem,12vh,8rem); }
+.hero-inner > * { max-width:600px; }
 .hero-title {
   font-family:var(--font-head); font-weight:300;
   font-size:var(--h1); letter-spacing:.05em; text-transform:uppercase;
