@@ -331,6 +331,7 @@ textarea:focus-visible,
 }
 .field textarea { resize:vertical; }
 .form-foot { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; }
+.hp { position:absolute !important; left:-9999px !important; width:1px; height:1px; overflow:hidden; } /* spam honeypot — keep off-screen */
 .form-status { font-style:italic; color:inherit; opacity:.9; }
 .form-fallback { font-size:.95rem; opacity:.85; margin-top:.2rem; }
 .form-fallback a { color:var(--gold); }

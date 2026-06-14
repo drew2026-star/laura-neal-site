@@ -49,21 +49,26 @@ CNAME/ALIAS record at GitHub Pages.)
 
 ## What to swap before going live
 
-### 1. Formspree endpoint (contact + valuation forms)
+### 1. Web3Forms access key (contact + valuation forms)
 
-Both forms post to a placeholder. Until you replace it, the forms fall back to
-normal behavior and a visible "Prefer email?" mailto line is always shown.
+Both forms post to Web3Forms (free, ~250 submissions/mo, leads delivered by
+email). Until you add the access key, the forms fall back to normal behavior and
+a visible "Prefer email?" mailto line is always shown — no lead is ever lost.
 
-- Create a (free) form at <https://formspree.io>, copy its endpoint
-  (looks like `https://formspree.io/f/abcdwxyz`).
+- Go to <https://web3forms.com>, enter the email where Laura wants leads, and
+  copy the **access key** it gives you (no password/account needed).
 - In `index.html`, replace **both** occurrences of:
 
   ```
-  action="https://formspree.io/f/PLACEHOLDER"
+  value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER"
   ```
 
-  with your real endpoint. The JS auto-detects a real endpoint and switches to
-  inline AJAX submission with a success/error message — no other change needed.
+  with the real key. That's it — the JS auto-detects the configured key and
+  switches to inline AJAX submission with a success/error message.
+
+The form handler is **provider-agnostic** (it POSTs FormData and reads a JSON
+`success` flag), so switching to another backend later — Splitforms, Formspree,
+etc. — is just a one-line `action` swap plus that service's key field.
 
 ### 2. Images
 

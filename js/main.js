@@ -95,19 +95,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ---------- Progressive form enhancement ---------- */
+  // Provider-agnostic: works with any backend that accepts a POST of FormData and
+  // returns JSON (Web3Forms, Formspree, Splitforms, etc.). Switching services is a
+  // one-line endpoint swap in the form's action (+ that service's key field).
+  function isConfigured(form) {
+    // Not yet wired up if the action or any key field still holds a PLACEHOLDER token.
+    if (/PLACEHOLDER/.test(form.action)) return false;
+    const key = form.querySelector('input[name="access_key"]');
+    if (key && /PLACEHOLDER/.test(key.value)) return false;
+    return true;
+  }
+
   function enhanceForm(form) {
     form.addEventListener('submit', async function (e) {
-      // Fall back to native submit / mailto until a real Formspree endpoint is set.
-      if (!form.action.includes('formspree.io') || form.action.includes('PLACEHOLDER')) return;
+      // Fall back to native submit / mailto until a real endpoint + key are set.
+      if (!isConfigured(form)) return;
       e.preventDefault();
       const status = form.querySelector('.form-status');
+      if (status) status.textContent = 'Sending…';
       try {
         const res = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { Accept: 'application/json' }
         });
-        if (res.ok) {
+        // Prefer the JSON success flag (Web3Forms/Splitforms); fall back to HTTP status.
+        let ok = res.ok;
+        try { const data = await res.json(); if (typeof data.success === 'boolean') ok = data.success; } catch (_) {}
+        if (ok) {
           form.reset();
           if (status) status.textContent = 'Thanks! Laura will be in touch shortly.';
         } else if (status) {

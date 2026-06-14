@@ -222,8 +222,12 @@
           <h2 class="section-title">Curious what your home is worth?</h2>
           <p class="valuation-lead">No pressure, no obligation — just a thoughtful look at your home's value in today's Front Range market.</p>
         </div>
-        <form class="form valuation-form" action="https://formspree.io/f/PLACEHOLDER" method="POST" data-enhance>
-          <input type="hidden" name="_subject" value="New home valuation request — laura-neal site">
+        <!-- Web3Forms: paste Laura's access key (free, get it in ~30s at web3forms.com) into the value below. Until then forms fall back to the visible "email me" link. -->
+        <form class="form valuation-form" action="https://api.web3forms.com/submit" method="POST" data-enhance>
+          <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER">
+          <input type="hidden" name="subject" value="New home valuation request — laura-neal site">
+          <input type="hidden" name="from_name" value="Laura Neal Website">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field field-full">
             <label for="v-address">Property address <span class="req">*</span></label>
             <input id="v-address" name="address" type="text" required aria-required="true" autocomplete="street-address">
@@ -295,8 +299,11 @@
             </li>
           </ul>
         </div>
-        <form class="form contact-form reveal" action="https://formspree.io/f/PLACEHOLDER" method="POST" data-enhance style="--reveal-delay:120ms">
-          <input type="hidden" name="_subject" value="New contact — laura-neal site">
+        <form class="form contact-form reveal" action="https://api.web3forms.com/submit" method="POST" data-enhance style="--reveal-delay:120ms">
+          <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY_PLACEHOLDER">
+          <input type="hidden" name="subject" value="New contact — laura-neal site">
+          <input type="hidden" name="from_name" value="Laura Neal Website">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="c-name">Name <span class="req">*</span></label>
             <input id="c-name" name="name" type="text" required aria-required="true" autocomplete="name">
