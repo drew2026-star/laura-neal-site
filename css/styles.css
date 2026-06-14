@@ -452,6 +452,67 @@ textarea:focus-visible,
 .footer-copy { font-size:.82rem; color:rgba(244,241,234,.88); margin-top:.6rem; }
 
 /* =====================================================================
+   AREA PAGES (niwot.html, boulder.html, lyons.html, longmont.html)
+   ===================================================================== */
+.area-hero {
+  position:relative; min-height:46vh; display:grid; align-items:end;
+  background:var(--navy); color:var(--cream); overflow:hidden;
+}
+.area-hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.area-hero::before {
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(0deg, rgba(20,33,61,.85) 0%, rgba(20,33,61,.32) 55%, rgba(20,33,61,.15) 100%);
+}
+.area-hero-inner { position:relative; z-index:2; width:100%; padding-block:clamp(2.5rem,6vw,4rem); }
+.area-back {
+  display:inline-block; margin-bottom:1.1rem; text-decoration:none;
+  font-family:var(--font-head); font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:600; color:rgba(244,241,234,.85);
+}
+.area-back:hover { color:var(--gold); }
+.area-title {
+  font-family:var(--font-head); font-weight:300; line-height:1;
+  font-size:clamp(2.6rem,7vw,4.5rem); letter-spacing:.04em; text-transform:uppercase;
+  margin:.2rem 0 .5rem;
+}
+.area-tagline { font-family:var(--font-body); font-style:italic; font-size:clamp(1.1rem,2.4vw,1.5rem); color:var(--gold); }
+
+.area-about-inner { max-width:70ch; }
+.area-about-inner p { margin-bottom:1.2rem; }
+.area-about-inner p:last-child { margin-bottom:0; }
+
+.area-stats-section { padding-top:clamp(2.5rem,6vw,4rem); }
+.area-stats {
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem;
+}
+.stat-tile {
+  background:var(--white); border:1px solid rgba(20,33,61,.10); border-radius:var(--radius);
+  box-shadow:var(--shadow-sm); padding:clamp(1.5rem,3vw,2.2rem); text-align:center;
+}
+.stat-num {
+  display:block; font-family:var(--font-head); font-weight:500; color:var(--navy);
+  font-size:clamp(1.9rem,4vw,2.6rem); letter-spacing:.01em; line-height:1;
+}
+.stat-label {
+  display:block; margin-top:.7rem; color:var(--muted);
+  font-family:var(--font-head); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase;
+}
+.area-source { margin-top:1.4rem; text-align:center; color:var(--muted); font-size:.8rem; }
+.area-market { padding-top:0; }
+
+/* Per-area market chart placeholder (until the Infosparks iframe is added) */
+.chart-placeholder {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:.4rem; padding:clamp(2.5rem,6vw,4rem) 1.5rem;
+}
+.chart-placeholder .market-chart { width:min(380px,75%); height:auto; opacity:.9; margin-bottom:.6rem; }
+.chart-placeholder-label {
+  font-family:var(--font-head); text-transform:uppercase; letter-spacing:.12em;
+  font-size:12.5px; font-weight:600; color:var(--navy);
+}
+.chart-placeholder-note { color:var(--muted); font-size:.92rem; }
+
+/* =====================================================================
    RESPONSIVE
    ===================================================================== */
 @media (max-width:900px) {
@@ -484,6 +545,7 @@ textarea:focus-visible,
   .footer-inner { flex-direction:column; }
   .footer-meta { text-align:left; }
   .hero-actions .btn { flex:1 1 auto; text-align:center; }
+  .area-stats { grid-template-columns:1fr; }
 }
 
 /* =====================================================================
