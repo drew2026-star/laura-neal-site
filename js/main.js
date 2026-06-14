@@ -1,9 +1,65 @@
 /* Laura Neal — site interactions
    - mobile nav toggle (a11y aware)
    - progressive form enhancement (Formspree fetch, native until configured)
-   Smooth scrolling is handled in CSS under prefers-reduced-motion. */
+   - hero text load-in + scroll cue
+   - sticky-header scrolled state (rAF-throttled, passive)
+   - scroll-reveal via IntersectionObserver
+   - featured-listings carousel (graceful with 1 item)
+   Smooth scrolling is handled in CSS under prefers-reduced-motion.
+   ALL motion is also gated in CSS under prefers-reduced-motion: no-preference. */
+
+const prefersReducedMotion =
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------- Hero text load-in ---------- */
+  // Set on next frame so the initial (hidden) state paints first, then transitions.
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      document.body.classList.add('loaded');
+    });
+  });
+
+  /* ---------- Sticky-header scrolled state + scroll cue ---------- */
+  const header = document.querySelector('.site-header');
+  let ticking = false;
+  function onScrollFrame() {
+    const y = window.pageYOffset || document.documentElement.scrollTop;
+    if (header) header.classList.toggle('scrolled', y > 40);
+    // Hide the scroll cue once the user has scrolled a bit.
+    document.body.classList.toggle('scrolled-cue', y > 30);
+    ticking = false;
+  }
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(onScrollFrame);
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScrollFrame(); // set initial state (e.g. on reload mid-page)
+
+  /* ---------- Scroll-reveal (IntersectionObserver, once) ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    // Reduced motion or no IO: show everything immediately, no animation.
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  } else {
+    const io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- Featured-listings carousel ---------- */
+  initCarousel(document.querySelector('[data-carousel]'));
+
 
   /* ---------- Mobile nav toggle ---------- */
   const toggle = document.querySelector('.nav-toggle');
@@ -64,5 +120,67 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   document.querySelectorAll('form[data-enhance]').forEach(enhanceForm);
+
+  /* ---------- Carousel implementation ---------- */
+  function initCarousel(root) {
+    if (!root) return;
+    const track = root.querySelector('.carousel-track');
+    const slides = track ? Array.prototype.slice.call(track.children) : [];
+    const prev = root.querySelector('.carousel-prev');
+    const next = root.querySelector('.carousel-next');
+    const dotsWrap = root.querySelector('.carousel-dots');
+
+    // Single slide (or none): degrade cleanly — keep arrows/dots hidden, no autoplay.
+    if (slides.length < 2) return;
+
+    root.classList.add('is-carousel');
+    let index = 0;
+    let timer = null;
+
+    // Build dots
+    const dots = slides.map(function (_, i) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel-dot';
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', 'Go to listing ' + (i + 1));
+      dot.addEventListener('click', function () { goTo(i); restart(); });
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.setProperty('--slide-index', index);
+      dots.forEach(function (d, di) {
+        d.setAttribute('aria-selected', di === index ? 'true' : 'false');
+      });
+    }
+
+    prev.hidden = false;
+    next.hidden = false;
+    dotsWrap.hidden = false;
+    prev.addEventListener('click', function () { goTo(index - 1); restart(); });
+    next.addEventListener('click', function () { goTo(index + 1); restart(); });
+
+    goTo(0);
+
+    /* Auto-advance (~6s) — skipped under reduced motion. Pauses on hover & focus. */
+    const interval = parseInt(root.getAttribute('data-autoplay'), 10) || 6000;
+    function start() {
+      if (prefersReducedMotion) return;
+      stop();
+      timer = setInterval(function () { goTo(index + 1); }, interval);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+
+    start();
+  }
 
 });

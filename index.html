@@ -52,6 +52,7 @@
         <ul class="nav-list">
           <li><a href="#about">About</a></li>
           <li><a href="#help">How I Help</a></li>
+          <li><a href="#areas">Areas</a></li>
           <li><a href="#listings">Listings</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -76,27 +77,33 @@
         <span class="media-label">Photo: Front Range Home</span>
       </div>
       <div class="container hero-inner">
-        <p class="eyebrow">Boulder · Niwot · Lyons — Compass</p>
-        <h1 class="hero-title">Laura Neal</h1>
-        <p class="hero-tagline">Real estate that's fun and fulfilling — never stressful.</p>
-        <p class="hero-sub">Helping buyers and sellers across Boulder, Niwot, Lyons &amp; the Front Range feel at home.</p>
-        <div class="hero-actions">
+        <!-- hero-anim children fade-up in sequence once body.loaded is set (see main.js) -->
+        <p class="eyebrow hero-anim">Boulder · Niwot · Lyons — Compass</p>
+        <h1 class="hero-title hero-anim">Laura Neal</h1>
+        <p class="hero-tagline hero-anim">Real estate that's fun and fulfilling — never stressful.</p>
+        <p class="hero-sub hero-anim">Helping buyers and sellers across Boulder, Niwot, Lyons &amp; the Front Range feel at home.</p>
+        <div class="hero-actions hero-anim">
           <a class="btn" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener">Search All Listings</a>
           <a class="btn btn-ghost btn-ghost-light" href="#contact">Let's Talk</a>
         </div>
       </div>
+      <!-- Scroll cue: bounces gently, hidden under reduced-motion and once the user scrolls -->
+      <a class="scroll-cue" href="#about" aria-label="Scroll to content">
+        <span class="scroll-cue-label">Scroll</span>
+        <span class="scroll-cue-chevron" aria-hidden="true"></span>
+      </a>
     </section>
 
     <!-- ============ ABOUT ============ -->
     <section class="section about" id="about">
       <div class="container about-grid">
-        <div class="about-portrait">
+        <div class="about-portrait reveal">
           <!-- Swap for real headshot: <img src="assets/laura.jpg" alt="Laura Neal"> -->
           <div class="portrait-placeholder" aria-hidden="true">
             <span class="media-label">Photo: Headshot</span>
           </div>
         </div>
-        <div class="about-text">
+        <div class="about-text reveal">
           <p class="eyebrow">Meet Laura</p>
           <h2 class="section-title">An artist's eye,<br>a teacher's patience.</h2>
           <p>Before Laura helped people find homes, she was a teacher, an artist, and a mural painter. She came to Colorado from Texas for college at CU Boulder, spent a season with AmeriCorps in Montana, and returned to the Front Range in 2011 to put down roots.</p>
@@ -108,18 +115,18 @@
     <!-- ============ HOW I HELP ============ -->
     <section class="section help" id="help">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <p class="eyebrow">How I Help</p>
           <h2 class="section-title">Guidance for every step</h2>
         </div>
         <div class="help-grid">
-          <article class="help-card">
+          <article class="help-card reveal">
             <span class="help-num">01</span>
             <h3 class="help-card-title">For Buyers</h3>
             <p>From your first showing to the closing table, I'll guide you with honest advice, local know-how, and zero pressure — so you can buy with confidence.</p>
             <a class="text-link" href="#contact">Let's talk <span aria-hidden="true">→</span></a>
           </article>
-          <article class="help-card">
+          <article class="help-card reveal" style="--reveal-delay:120ms">
             <span class="help-num">02</span>
             <h3 class="help-card-title">For Sellers</h3>
             <p>I'll help you prep, price, and present your home to stand out, with marketing that does it justice and a process that stays calm from list to close.</p>
@@ -129,27 +136,78 @@
       </div>
     </section>
 
+    <!-- ============ AREAS I SERVE ============ -->
+    <section class="section areas" id="areas">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Areas I Serve</p>
+          <h2 class="section-title">Rooted in the Front Range</h2>
+        </div>
+        <!-- Cards link to Laura's Compass profile; later these can deep-link to
+             area-filtered Compass searches (e.g. ?location=Boulder,CO). -->
+        <div class="areas-grid">
+          <a class="area-card reveal" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener" data-area="Boulder">
+            <span class="area-name">Boulder</span>
+            <span class="area-overlay" aria-hidden="true"><span class="area-explore">Explore <span aria-hidden="true">→</span></span></span>
+          </a>
+          <a class="area-card reveal" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener" data-area="Niwot" style="--reveal-delay:90ms">
+            <span class="area-name">Niwot</span>
+            <span class="area-overlay" aria-hidden="true"><span class="area-explore">Explore <span aria-hidden="true">→</span></span></span>
+          </a>
+          <a class="area-card reveal" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener" data-area="Lyons" style="--reveal-delay:180ms">
+            <span class="area-name">Lyons</span>
+            <span class="area-overlay" aria-hidden="true"><span class="area-explore">Explore <span aria-hidden="true">→</span></span></span>
+          </a>
+          <a class="area-card reveal" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener" data-area="Longmont" style="--reveal-delay:270ms">
+            <span class="area-name">Longmont</span>
+            <span class="area-overlay" aria-hidden="true"><span class="area-explore">Explore <span aria-hidden="true">→</span></span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ FEATURED LISTINGS ============ -->
     <section class="section listings" id="listings">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <p class="eyebrow">Featured Listings</p>
           <h2 class="section-title">On the market now</h2>
         </div>
-        <div class="listings-grid">
-          <article class="listing-card">
-            <!-- Swap for real photo: <img src="assets/listing-monarch.jpg" alt="7845 Monarch Road, Niwot"> -->
-            <div class="listing-media" aria-hidden="true">
-              <span class="media-label">Photo: 7845 Monarch Rd</span>
-              <span class="listing-tag">For Sale</span>
+
+        <!-- Carousel: JS adds .is-carousel + arrows/dots only when 2+ slides exist.
+             With a single listing it degrades to a plain card (no arrows/dots/auto-advance).
+             Add more <article class="listing-card"> slides inside .carousel-track to enable sliding. -->
+        <div class="carousel reveal" data-carousel data-autoplay="6000">
+          <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous listing" hidden>
+            <span aria-hidden="true">‹</span>
+          </button>
+
+          <div class="carousel-viewport">
+            <div class="carousel-track" role="list">
+              <article class="listing-card" role="listitem">
+                <!-- Swap for real photo: <img src="assets/listing-monarch.jpg" alt="7845 Monarch Road, Niwot"> -->
+                <div class="listing-media" aria-hidden="true">
+                  <span class="media-label">Photo: 7845 Monarch Rd</span>
+                  <span class="listing-tag">For Sale</span>
+                  <!-- Gold overlay fades in on card hover/focus (enhancement only) -->
+                  <span class="listing-overlay"><span class="listing-overlay-btn">View Listing</span></span>
+                </div>
+                <div class="listing-body">
+                  <p class="listing-price">$1,650,000</p>
+                  <p class="listing-address">7845 Monarch Road, Niwot, CO</p>
+                  <a class="btn btn-ghost btn-sm listing-link" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener">View Listing</a>
+                </div>
+              </article>
             </div>
-            <div class="listing-body">
-              <p class="listing-price">$1,650,000</p>
-              <p class="listing-address">7845 Monarch Road, Niwot, CO</p>
-              <a class="btn btn-ghost btn-sm" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener">View Listing</a>
-            </div>
-          </article>
+          </div>
+
+          <button class="carousel-arrow carousel-next" type="button" aria-label="Next listing" hidden>
+            <span aria-hidden="true">›</span>
+          </button>
+
+          <div class="carousel-dots" role="tablist" aria-label="Choose listing" hidden></div>
         </div>
+
         <div class="listings-cta">
           <a class="btn" href="https://www.compass.com/agents/laura-neal/" target="_blank" rel="noopener">See All My Listings</a>
         </div>
@@ -198,12 +256,12 @@
     <!-- ============ REVIEWS ============ -->
     <section class="section reviews" id="reviews">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <p class="eyebrow">Kind Words</p>
           <h2 class="section-title">What clients say</h2>
         </div>
         <ul class="reviews-list">
-          <li class="review-card">
+          <li class="review-card reveal">
             <div class="stars" role="img" aria-label="5 out of 5 stars">
               <span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span><span aria-hidden="true">★</span>
             </div>
@@ -222,7 +280,7 @@
     <!-- ============ CONTACT ============ -->
     <section class="section contact" id="contact">
       <div class="container contact-grid">
-        <div class="contact-info">
+        <div class="contact-info reveal">
           <p class="eyebrow">Get In Touch</p>
           <h2 class="section-title">Let's find your place.</h2>
           <p class="contact-blurb">Whether you're buying, selling, or just exploring your options — I'd love to hear from you.</p>
@@ -237,7 +295,7 @@
             </li>
           </ul>
         </div>
-        <form class="form contact-form" action="https://formspree.io/f/PLACEHOLDER" method="POST" data-enhance>
+        <form class="form contact-form reveal" action="https://formspree.io/f/PLACEHOLDER" method="POST" data-enhance style="--reveal-delay:120ms">
           <input type="hidden" name="_subject" value="New contact — laura-neal site">
           <div class="field">
             <label for="c-name">Name <span class="req">*</span></label>
