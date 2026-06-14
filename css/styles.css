@@ -338,6 +338,8 @@ textarea:focus-visible,
 .field textarea { resize:vertical; }
 .form-foot { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; }
 .hp { position:absolute !important; left:-9999px !important; width:1px; height:1px; overflow:hidden; } /* spam honeypot — keep off-screen */
+.footer-credit { font-size:.72rem; margin-top:.5rem; }
+.footer-credit a { color:var(--gold); text-decoration:underline; }
 .form-status { font-style:italic; color:inherit; opacity:.9; }
 .form-fallback { font-size:.95rem; opacity:.85; margin-top:.2rem; }
 .form-fallback a { color:var(--gold); }
@@ -468,21 +470,25 @@ textarea:focus-visible,
     linear-gradient(150deg, var(--navy) 0%, var(--navy-2) 100%);
   box-shadow:var(--shadow-sm);
 }
-/* subtle grid texture to match the other placeholders */
+/* photo fills the card; gradient above shows through only if it fails to load */
+.area-photo {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  z-index:0; transition:transform .5s ease;
+}
+.area-card:hover .area-photo,
+.area-card:focus-visible .area-photo { transform:scale(1.05); }
+/* permanent bottom scrim so the area name stays readable over any photo */
 .area-card::after {
-  content:""; position:absolute; inset:0; opacity:.5; pointer-events:none;
-  background-image:
-    linear-gradient(rgba(244,241,234,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(244,241,234,.045) 1px, transparent 1px);
-  background-size:42px 42px;
+  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, rgba(20,33,61,0) 42%, rgba(20,33,61,.78) 100%);
 }
 .area-name {
-  position:absolute; left:1.1rem; bottom:1.1rem; z-index:2;
+  position:absolute; left:1.1rem; bottom:1.1rem; z-index:3;
   font-family:var(--font-head); font-weight:400; font-size:1.35rem;
   letter-spacing:.06em; text-transform:uppercase; color:var(--cream);
 }
 .area-overlay {
-  position:absolute; inset:0; z-index:1;
+  position:absolute; inset:0; z-index:2;
   display:flex; align-items:center; justify-content:center;
   background:linear-gradient(180deg, rgba(20,33,61,.10) 0%, rgba(20,33,61,.78) 100%);
   opacity:0; transition:opacity .35s ease;
