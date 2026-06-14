@@ -275,10 +275,6 @@ textarea:focus-visible,
 /* =====================================================================
    FEATURED LISTINGS
    ===================================================================== */
-.listings-grid {
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(320px,1fr));
-  gap:1.75rem;
-}
 .listing-card {
   background:var(--white); border-radius:var(--radius); overflow:hidden;
   border:1px solid rgba(20,33,61,.08); box-shadow:var(--shadow-sm);
@@ -528,8 +524,8 @@ textarea:focus-visible,
   box-shadow:var(--shadow-sm);
 }
 .carousel-arrow:hover { background:var(--navy); color:var(--cream); border-color:var(--navy); }
-.carousel-prev { left:-6px; }
-.carousel-next { right:-6px; }
+.carousel-prev { left:6px; }
+.carousel-next { right:6px; }
 .carousel-arrow[hidden] { display:none; }
 
 .carousel-dots {
