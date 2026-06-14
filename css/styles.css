@@ -294,7 +294,12 @@ textarea:focus-visible,
   font-family:var(--font-head); font-weight:500; font-size:1.5rem;
   color:var(--navy); letter-spacing:.02em;
 }
-.listing-address { color:var(--muted); margin:.3rem 0 1.3rem; }
+.listing-address { color:var(--muted); margin:.3rem 0 .55rem; }
+.listing-specs {
+  font-family:var(--font-head); font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--navy); font-weight:500; margin-bottom:.55rem;
+}
+.listing-note { color:var(--muted); font-size:.95rem; margin-bottom:1.3rem; }
 .listings-cta { text-align:center; margin-top:3rem; }
 
 /* =====================================================================
