@@ -44,8 +44,28 @@ It's a static site, so any of these work:
    **Branch** = `main`, folder = `/ (root)`. Save.
 4. The site publishes at `https://<you>.github.io/<repo>/` within a minute or two.
 
-(Custom domain: add it under Settings → Pages → Custom domain, then point a
-CNAME/ALIAS record at GitHub Pages.)
+### Custom domain — lauranealhomes.com (registered at Cloudflare)
+
+A `CNAME` file (containing `lauranealhomes.com`) is already in this repo, so GitHub
+Pages will pick up the custom domain automatically on deploy.
+
+In **Cloudflare → DNS**, add these records pointing the domain at GitHub Pages:
+
+| Type  | Name              | Value                  | Proxy        |
+|-------|-------------------|------------------------|--------------|
+| A     | `@`               | `185.199.108.153`      | DNS only (grey) |
+| A     | `@`               | `185.199.109.153`      | DNS only (grey) |
+| A     | `@`               | `185.199.110.153`      | DNS only (grey) |
+| A     | `@`               | `185.199.111.153`      | DNS only (grey) |
+| CNAME | `www`             | `<you>.github.io`      | DNS only (grey) |
+
+Then in **GitHub → Settings → Pages → Custom domain**, enter `lauranealhomes.com`,
+save, and tick **Enforce HTTPS** once the cert provisions (a few minutes to an hour).
+
+Notes:
+- Set the Cloudflare records to **DNS only** (grey cloud), not proxied, while GitHub
+  validates the domain and issues the TLS cert. You can enable proxying later if desired.
+- If Cloudflare SSL/TLS mode is used, set it to **Full** (not Flexible) to avoid redirect loops.
 
 ## What to swap before going live
 
