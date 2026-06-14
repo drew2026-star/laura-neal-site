@@ -305,6 +305,31 @@ textarea:focus-visible,
 .listings-cta { text-align:center; margin-top:3rem; }
 
 /* =====================================================================
+   MARKET INSIGHTS
+   ===================================================================== */
+/* .market-embed is the drop-in frame for the IRES Infosparks snippet.
+   When a real embed/iframe is pasted in, remove .market-placeholder. */
+.market-embed {
+  border:1px solid rgba(20,33,61,.12); border-radius:var(--radius);
+  background:var(--white); box-shadow:var(--shadow-sm); overflow:hidden;
+}
+.market-embed iframe { display:block; width:100%; border:0; }
+.market-placeholder {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; gap:.5rem; padding:clamp(2.5rem,6vw,4.5rem) 1.5rem;
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(201,164,92,.10), transparent 60%),
+    var(--white);
+}
+.market-chart { width:min(420px,80%); height:auto; opacity:.9; margin-bottom:.75rem; }
+.market-placeholder-label {
+  font-family:var(--font-head); text-transform:uppercase; letter-spacing:.12em;
+  font-size:13px; font-weight:600; color:var(--navy);
+}
+.market-placeholder-note { color:var(--muted); font-size:.95rem; max-width:42ch; }
+.market-cta { text-align:center; margin-top:2.25rem; }
+
+/* =====================================================================
    VALUATION BAND
    ===================================================================== */
 .valuation-inner {
