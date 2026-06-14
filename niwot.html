@@ -105,18 +105,12 @@
           <p class="eyebrow">Market Insights</p>
           <h2 class="section-title">Niwot market trends</h2>
         </div>
-        <!-- Paste the Niwot IRES Infosparks iframe inside .market-frame (replace .chart-placeholder).
-             It will be scaled responsively by scaleMarketFrames() in main.js, like the homepage chart. -->
         <div class="market-embed reveal">
-          <div class="chart-placeholder">
-            <svg class="market-chart" viewBox="0 0 320 120" role="img" aria-hidden="true" preserveAspectRatio="none">
-              <polyline points="0,95 40,80 80,88 120,60 160,66 200,42 240,48 280,24 320,30" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
-              <polyline points="0,105 40,98 80,100 120,86 160,90 200,74 240,80 280,62 320,66" fill="none" stroke="rgba(20,33,61,.25)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
-            </svg>
-            <p class="chart-placeholder-label">Niwot market chart</p>
-            <p class="chart-placeholder-note">Live trends (IRES Infosparks) coming soon.</p>
+          <div class="market-frame">
+            <iframe src="https://ires.stats.10kresearch.com/infoserv/s-v1/GE3W-D6Y?w=800&h=600" title="Niwot market trends — IRES Infosparks" width="800" height="600" loading="lazy"></iframe>
           </div>
         </div>
+        <p class="market-source">Live data via IRES Infosparks.</p>
         <div class="market-cta reveal">
           <a class="btn btn-ghost" href="#contact">Ask for a Niwot market report</a>
         </div>
