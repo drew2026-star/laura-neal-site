@@ -513,6 +513,20 @@ textarea:focus-visible,
 .chart-placeholder-note { color:var(--muted); font-size:.92rem; }
 
 /* =====================================================================
+   SEARCH PAGE (search.html — IRES ColoProperty frame)
+   ===================================================================== */
+.search-intro { padding-block:clamp(1.8rem,4vw,2.8rem); }
+.search-lead { color:rgba(244,241,234,.85); margin-top:1rem; max-width:62ch; }
+.search-lead strong { color:var(--gold); font-weight:400; }
+.idx-section { padding:0; }
+.idx-frame { width:100%; background:var(--cream); }
+.idx-frame iframe {
+  display:block; width:100%; border:0;
+  height:min(1150px, calc(100vh - 120px)); min-height:740px;
+}
+.idx-note { display:block; color:var(--muted); font-size:.8rem; padding-block:1.1rem 2.5rem; }
+
+/* =====================================================================
    RESPONSIVE
    ===================================================================== */
 @media (max-width:900px) {
