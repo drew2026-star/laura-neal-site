@@ -515,14 +515,15 @@ textarea:focus-visible,
 /* =====================================================================
    SEARCH PAGE (search.html — IRES ColoProperty frame)
    ===================================================================== */
-.search-intro { padding-block:clamp(1.8rem,4vw,2.8rem); }
-.search-lead { color:rgba(244,241,234,.85); margin-top:1rem; max-width:62ch; }
-.search-lead strong { color:var(--gold); font-weight:400; }
+.search-intro { padding-block:clamp(.9rem,2vw,1.35rem); }
+.search-intro .section-title { font-size:clamp(1.5rem,3vw,2rem); }
+.search-lead { color:rgba(244,241,234,.85); margin-top:.45rem; max-width:70ch; font-size:.95rem; }
+.search-lead a { color:var(--gold); text-decoration:underline; text-underline-offset:2px; }
 .idx-section { padding:0; }
 .idx-frame { width:100%; background:var(--cream); }
 .idx-frame iframe {
   display:block; width:100%; border:0;
-  height:min(1150px, calc(100vh - 120px)); min-height:740px;
+  height:calc(100vh - 170px); min-height:760px;
 }
 .idx-note { display:block; color:var(--muted); font-size:.8rem; padding-block:1.1rem 2.5rem; }
 
