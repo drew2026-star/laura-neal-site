@@ -520,6 +520,13 @@ textarea:focus-visible,
 .search-lead { color:rgba(244,241,234,.85); margin-top:.45rem; max-width:70ch; font-size:.95rem; }
 .search-lead a { color:var(--gold); text-decoration:underline; text-underline-offset:2px; }
 .idx-section { padding:0; }
+.idx-hint {
+  display:flex; align-items:center; justify-content:center; gap:.5rem; text-align:center;
+  color:var(--muted); font-family:var(--font-head); font-size:12.5px; letter-spacing:.04em;
+  padding-block:.9rem;
+}
+.idx-hint-icon { color:var(--gold); flex:none; }
+.idx-hint strong { color:var(--navy); font-weight:600; }
 .idx-frame { width:100%; background:var(--cream); }
 .idx-frame iframe {
   display:block; width:100%; border:0;
