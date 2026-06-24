@@ -450,6 +450,7 @@ textarea:focus-visible,
 /* Opacity bumped to .88 so cream-on-navy fine print clears WCAG AA at this size. */
 .footer-fine { font-size:.82rem; color:rgba(244,241,234,.88); line-height:1.6; margin-top:.8rem; }
 .footer-copy { font-size:.82rem; color:rgba(244,241,234,.88); margin-top:.6rem; }
+.footer-compass { display:block; height:18px; width:auto; margin-top:.7rem; opacity:.95; }
 
 /* =====================================================================
    AREA PAGES (niwot.html, boulder.html, lyons.html, longmont.html)
